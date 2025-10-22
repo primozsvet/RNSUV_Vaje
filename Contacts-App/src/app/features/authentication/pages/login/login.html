@@ -1,0 +1,27 @@
+<div class="container d-flex align-items-center justify-content-center min-vh-100 login-container">
+    <!-- Single responsive card/form -->
+    <div class="card shadow-sm login-card w-100 w-md-80 w-lg-80">
+        <div class="card-body p-4">
+            <h2 class="mb-4 text-success text-center fw-bold login-title">Prijava</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label login-label">Email naslov:</label>
+                    <input type="email" class="form-control login-input" id="email" placeholder="Vnesite email"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label login-label">Geslo:</label>
+                    <input type="password" class="form-control login-input" id="password" placeholder="Vnesite geslo"
+                        required>
+                </div>
+                <div class="d-grid gap-2 d-lg-flex justify-content-lg-between align-items-lg-center">
+                    <!-- Button first on mobile, link below; on lg+ link appears left and button right -->
+                    <button type="submit" class="btn btn-success text-white login-btn order-1 order-lg-2">Prijavi
+                        se</button>
+                    <a href="/signup" class="text-muted text-center order-2 order-lg-1 signup-login-link">Še niste
+                        registrirani?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
