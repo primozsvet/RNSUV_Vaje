@@ -1,0 +1,44 @@
+<div class="container d-flex align-items-center justify-content-center min-vh-100" style="overflow-y:auto;">
+    <!-- Single responsive form: card appearance controlled by CSS -->
+    <div class="w-100 w-md-80 w-lg-80 contact-edit-root">
+        <!-- Left-aligned cancel link placed outside the card -->
+        <a href="/contacts" class="text-muted back-link d-inline-block mb-2">&lt;- Prekliči</a>
+        <div class="card shadow-sm mb-5"> <!-- Increased bottom margin for better spacing -->
+            <div class="card-body p-4">
+                <h2 class="mb-4 fw-bold contact-edit-title">
+                    Urejanje kontakta:
+                    <span class="d-none d-md-inline"> Ana Novak</span>
+                    <span class="d-inline d-md-none"><br>Ana Novak</span>
+                </h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="ime" class="form-label contact-edit-label">Ime:</label>
+                        <input type="text" class="form-control contact-edit-input" id="ime" value="Ana" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="priimek" class="form-label contact-edit-label">Priimek:</label>
+                        <input type="text" class="form-control contact-edit-input" id="priimek" value="Novak" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefon" class="form-label contact-edit-label">Telefon:</label>
+                        <input type="text" class="form-control contact-edit-input" id="telefon" value="041 123 456"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label contact-edit-label">Elektronska pošta:</label>
+                        <input type="email" class="form-control contact-edit-input" id="email"
+                            value="ana.novak@email.si" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="podjetje" class="form-label contact-edit-label">Podjetje (neobvezno):</label>
+                        <input type="text" class="form-control contact-edit-input" id="podjetje" value="Mercator">
+                    </div>
+                    <div class="d-grid gap-2 d-lg-flex justify-content-lg-end">
+                        <button type="submit" class="btn btn-success text-white contact-edit-btn">Shrani</button>
+                        <button type="button" class="btn btn-danger contact-edit-btn">Izbriši</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

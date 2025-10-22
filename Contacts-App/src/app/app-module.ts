@@ -8,6 +8,8 @@ import { Footer } from './shared/components/footer/footer';
 import { Login } from './features/authentication/pages/login/login';
 import { Signup } from './features/authentication/pages/signup/signup';
 import { ContactsOverview } from './features/contacts/pages/contacts-overview/contacts-overview';
+import { ContactsNew } from './features/contacts/pages/contacts-new/contacts-new';
+import { ContactsEdit } from './features/contacts/pages/contacts-edit/contacts-edit';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ContactsOverview } from './features/contacts/pages/contacts-overview/co
     Footer,
     Login,
     Signup,
-    ContactsOverview
+    ContactsOverview,
+    ContactsNew,
+    ContactsEdit
   ],
   imports: [
     BrowserModule,
