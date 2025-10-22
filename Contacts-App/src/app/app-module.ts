@@ -7,6 +7,7 @@ import { Header } from './shared/components/header/header';
 import { Footer } from './shared/components/footer/footer';
 import { Login } from './features/authentication/pages/login/login';
 import { Signup } from './features/authentication/pages/signup/signup';
+import { ContactsOverview } from './features/contacts/pages/contacts-overview/contacts-overview';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { Signup } from './features/authentication/pages/signup/signup';
     Header,
     Footer,
     Login,
-    Signup
+    Signup,
+    ContactsOverview
   ],
   imports: [
     BrowserModule,
