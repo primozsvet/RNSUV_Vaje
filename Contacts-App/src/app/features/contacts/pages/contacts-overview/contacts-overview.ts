@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Contact } from '../../../../shared/classes/contact';
 
+import demoContacts from '../../../../../../public/assets/demo/demo-contacts.json';
+
 @Component({
   selector: 'app-contacts-overview',
   standalone: false,
@@ -10,6 +12,9 @@ import { Contact } from '../../../../shared/classes/contact';
 })
 export class ContactsOverview implements OnInit {
 
+  public contacts: Contact[] = [];
+
+  /*
   public contact1: Contact = new Contact('', '', '', '', '');
   public contact2: Contact = new Contact('', '', '', '', '');
 
@@ -18,6 +23,7 @@ export class ContactsOverview implements OnInit {
 
   public contactClassButton1 = {};
   public contactClassButton2 = {};
+  */
 
   /*
   public name: string = '';
@@ -36,6 +42,8 @@ export class ContactsOverview implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.loadDemoContacts();
+    /*
     this.contact1.name = 'Ana';
     this.contact1.surname = 'Novak';
     this.contact1.phone = '+38640123456';
@@ -66,7 +74,7 @@ export class ContactsOverview implements OnInit {
       'btn-success': this.contact2.company === '',
       'btn-primary': this.contact2.company !== ''
     }
-
+    */
     /*
     this.name = 'Ana';
     this.surname = 'Novak';
@@ -81,18 +89,41 @@ export class ContactsOverview implements OnInit {
     */
   }
 
-  editButton(name: string, surname: string, phone: string, email: string, company: string) {
+  editButton(contact: Contact) {
     let tekst = '';
 
-    if(company) {
-      tekst = `Urejanje kontakta ${name} ${surname}:\nTelefon: ${phone}\nEmail: ${email}\nPodjetje: ${company}`;
+    if(contact.company) {
+      tekst = `Urejanje kontakta ${contact.name} ${contact.surname}:\nTelefon: ${contact.phone}\nEmail: ${contact.email}\nPodjetje: ${contact.company}`;
       console.log(tekst);
     } else {
-      tekst = `Urejanje kontakta ${name} ${surname}:\nTelefon: ${phone}\nEmail: ${email}`;
+      tekst = `Urejanje kontakta ${contact.name} ${contact.surname}:\nTelefon: ${contact.phone}\nEmail: ${contact.email}`;
       console.log(tekst);
     }
 
     alert(tekst);
   }
 
+  private loadDemoContacts() {
+    this.contacts = (demoContacts as any[]).map(obj => new Contact(
+      obj.name || '',
+      obj.surname || '',
+      obj.phone || '',
+      obj.email || '',
+      obj.company || ''
+    ));
+  }
+
+  addContactClassText(contact: Contact) {
+    return {
+      'text-success': contact.company === '',
+      'text-primary': contact.company !== ''
+    }
+  }
+
+  addContactClassButton(contact: Contact) {
+    return {
+      'btn-success': contact.company === '',
+      'btn-primary': contact.company !== ''
+    }
+  }
 }
