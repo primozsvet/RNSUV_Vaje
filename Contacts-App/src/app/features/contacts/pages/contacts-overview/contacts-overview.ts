@@ -13,6 +13,12 @@ export class ContactsOverview implements OnInit {
   public contact1: Contact = new Contact('', '', '', '', '');
   public contact2: Contact = new Contact('', '', '', '', '');
 
+  public contactClassText1 = {};
+  public contactClassText2 = {};
+
+  public contactClassButton1 = {};
+  public contactClassButton2 = {};
+
   /*
   public name: string = '';
   public surname: string = '';
@@ -40,7 +46,27 @@ export class ContactsOverview implements OnInit {
     this.contact2.surname = 'Kralj';
     this.contact2.phone = '+38640123456';
     this.contact2.email = 'bojan.kralj@email.si';
-    
+
+    this.contactClassText1 = {
+      'text-success': this.contact1.company === '',
+      'text-primary': this.contact1.company !== ''
+    }
+
+    this.contactClassText2 = {
+      'text-success': this.contact2.company === '',
+      'text-primary': this.contact2.company !== ''
+    }
+
+    this.contactClassButton1 = {
+      'btn-success': this.contact1.company === '',
+      'btn-primary': this.contact1.company !== ''
+    }
+
+    this.contactClassButton2 = {
+      'btn-success': this.contact2.company === '',
+      'btn-primary': this.contact2.company !== ''
+    }
+
     /*
     this.name = 'Ana';
     this.surname = 'Novak';
