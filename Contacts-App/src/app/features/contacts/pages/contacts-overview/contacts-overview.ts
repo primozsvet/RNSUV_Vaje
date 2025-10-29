@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Contact } from '../../../../shared/classes/contact';
+
 @Component({
   selector: 'app-contacts-overview',
   standalone: false,
@@ -8,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsOverview implements OnInit {
 
+  public contact1: Contact = new Contact('', '', '', '', '');
+  public contact2: Contact = new Contact('', '', '', '', '');
+
+  /*
   public name: string = '';
   public surname: string = '';
   public phone: string = '';
@@ -19,10 +25,23 @@ export class ContactsOverview implements OnInit {
   public phone2: string = '';
   public email2: string = '';
   public company2: string = '';
+  */
 
   constructor() {}
 
   ngOnInit(): void {
+    this.contact1.name = 'Ana';
+    this.contact1.surname = 'Novak';
+    this.contact1.phone = '+38640123456';
+    this.contact1.email = 'ana.novak@email.si';
+    this.contact1.company = 'Mercator';
+
+    this.contact2.name = 'Bojan';
+    this.contact2.surname = 'Kralj';
+    this.contact2.phone = '+38640123456';
+    this.contact2.email = 'bojan.kralj@email.si';
+    
+    /*
     this.name = 'Ana';
     this.surname = 'Novak';
     this.phone = '+38640123456';
@@ -33,6 +52,21 @@ export class ContactsOverview implements OnInit {
     this.surname2 = 'Kralj';
     this.phone2 = '+38640123456';
     this.email2 = 'bojan.kralj@email.si';
+    */
+  }
+
+  editButton(name: string, surname: string, phone: string, email: string, company: string) {
+    let tekst = '';
+
+    if(company) {
+      tekst = `Urejanje kontakta ${name} ${surname}:\nTelefon: ${phone}\nEmail: ${email}\nPodjetje: ${company}`;
+      console.log(tekst);
+    } else {
+      tekst = `Urejanje kontakta ${name} ${surname}:\nTelefon: ${phone}\nEmail: ${email}`;
+      console.log(tekst);
+    }
+
+    alert(tekst);
   }
 
 }
