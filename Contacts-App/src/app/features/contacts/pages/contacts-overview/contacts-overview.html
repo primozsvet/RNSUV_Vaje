@@ -1,7 +1,44 @@
 <div class="container py-5 mb-5">
     <h2 class="mb-5 fw-bold contact-overview-title">Pregled kontaktov</h2>
     <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow-sm h-100 d-flex flex-column justify-content-between contact-overview-card">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title text-success fw-bold mb-3 contact-overview-name">{{name + ' ' + surname}}</h5>
+                    <div class="mb-2 contact-overview-field"><span class="fw-semibold">Telefon:</span> {{phone}}</div>
+                    <div class="mb-2 contact-overview-field"><span class="fw-semibold">Email:</span> {{email}}</div>
+                    <div class="mb-2 contact-overview-field"><span class="fw-semibold">Podjetje:</span> {{company}}</div>
+                    <div class="mt-auto contact-overview-actions">
+                        <div class="d-none d-md-flex justify-content-end">
+                            <button class="btn btn-success text-white px-4 contact-overview-btn">Uredi</button>
+                        </div>
+                        <div class="d-flex d-md-none">
+                            <button class="btn btn-success text-white w-100 contact-overview-btn">Uredi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow-sm h-100 d-flex flex-column justify-content-between contact-overview-card">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title text-success fw-bold mb-3 contact-overview-name">{{name2 + ' ' + surname2}}</h5>
+                    <div class="mb-2 contact-overview-field"><span class="fw-semibold">Telefon:</span> {{phone2}}</div>
+                    <div class="mb-2 contact-overview-field"><span class="fw-semibold">Email:</span> {{email2}}</div>
+                    <div class="mb-2 contact-overview-field"><span class="fw-semibold">Podjetje:</span> {{company2}}</div>
+                    <div class="mt-auto contact-overview-actions">
+                        <div class="d-none d-md-flex justify-content-end">
+                            <button class="btn btn-success text-white px-4 contact-overview-btn">Uredi</button>
+                        </div>
+                        <div class="d-flex d-md-none">
+                            <button class="btn btn-success text-white w-100 contact-overview-btn">Uredi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Demo contacts (hardcoded) -->
+         <!--
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card shadow-sm h-100 d-flex flex-column justify-content-between contact-overview-card">
                 <div class="card-body d-flex flex-column justify-content-between">
@@ -381,6 +418,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
