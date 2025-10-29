@@ -33,7 +33,6 @@ export class ContactsOverview implements OnInit {
     this.surname2 = 'Kralj';
     this.phone2 = '+38640123456';
     this.email2 = 'bojan.kralj@email.si';
-    this.company2 = 'Mercator';
   }
 
 }
