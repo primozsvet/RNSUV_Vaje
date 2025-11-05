@@ -10,7 +10,7 @@ export class App {
   protected readonly title = signal('Contacts-App');
 
   public loggedIn = false;
-  public isLoginForm = false;
+  public isLoginForm = true;
   public contactViewMode: string = '';
 
 }
