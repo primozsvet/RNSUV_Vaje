@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from '../../../../shared/classes/user';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -16,8 +17,8 @@ export class Signup {
     this.user = new User ('','','','');
   }
 
-  public onSubmit(): void {
-    if(this.confirmed && this.user.name && this.user.surname && this.user.email && this.user.pass) {
+  public onSubmit(regForm: NgForm): void {
+    if(this.confirmed && regForm.valid) {
       let tekst = `Registracija uporabnika:\nIme: ${this.user.name}\nPriimek: ${this.user.surname}\nEmail: ${this.user.email}\nGeslo: ${this.user.pass}`;
       alert(tekst);
       console.log(tekst);
