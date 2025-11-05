@@ -9,8 +9,8 @@ import { Component, signal } from '@angular/core';
 export class App {
   protected readonly title = signal('Contacts-App');
 
-  public loggedIn = false;
+  public loggedIn = true;
   public isLoginForm = true;
-  public contactViewMode: string = '';
+  public contactViewMode: string = 'new';
 
 }
