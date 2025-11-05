@@ -28,9 +28,15 @@
                     [(ngModel)]="user.pass"
                     required>
                 </div>
+                <div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="confirmed" name="confirmed"
+						[(ngModel)]="confirmed">
+					<label class="form-check-label signup-label" for="confirmed">Strinjam se z uporabo navedenih osebnih
+						podatkov za registracijo v aplikaciji Imenik.</label>
+				</div>
                 <div class="d-grid gap-2 d-lg-flex justify-content-lg-between align-items-lg-center">
                     <!-- Button first on mobile, link below; on lg+ link appears left and button right -->
-                    <button (click)="onSubmit()" type="submit" class="btn btn-success text-white signup-btn order-1 order-lg-2">Registriraj
+                    <button [disabled]="!confirmed" (click)="onSubmit()" type="submit" class="btn btn-success text-white signup-btn order-1 order-lg-2">Registriraj
                         se</button>
                     <a href="/login" class="text-muted text-center order-2 order-lg-1 signup-login-link">Ste že
                         registrirani?</a>
