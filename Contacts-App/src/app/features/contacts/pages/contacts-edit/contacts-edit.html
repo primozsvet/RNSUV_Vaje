@@ -10,33 +10,56 @@
                     <span class="d-none d-md-inline"> Ana Novak</span>
                     <span class="d-inline d-md-none"><br>Ana Novak</span>
                 </h2>
-                <form>
+                <form (ngSubmit)="onSubmit(contactForm)" class="form-group" #contactForm="ngForm">
                     <div class="mb-3">
-                        <label for="ime" class="form-label contact-edit-label">Ime:</label>
-                        <input type="text" class="form-control contact-edit-input" id="ime" value="Ana" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="priimek" class="form-label contact-edit-label">Priimek:</label>
-                        <input type="text" class="form-control contact-edit-input" id="priimek" value="Novak" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="telefon" class="form-label contact-edit-label">Telefon:</label>
-                        <input type="text" class="form-control contact-edit-input" id="telefon" value="041 123 456"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label contact-edit-label">Elektronska pošta:</label>
-                        <input type="email" class="form-control contact-edit-input" id="email"
-                            value="ana.novak@email.si" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="podjetje" class="form-label contact-edit-label">Podjetje (neobvezno):</label>
-                        <input type="text" class="form-control contact-edit-input" id="podjetje" value="Mercator">
-                    </div>
-                    <div class="d-grid gap-2 d-lg-flex justify-content-lg-end">
-                        <button type="submit" class="btn btn-success text-white contact-edit-btn">Shrani</button>
-                        <button type="button" class="btn btn-danger contact-edit-btn">Izbriši</button>
-                    </div>
+						<label for="ime" class="form-label contact-edit-label">Ime:</label>
+						<input type="text" class="form-control contact-edit-input" id="ime" name="contactName"
+							[(ngModel)]="contact.name" #contactName="ngModel" required
+							[ngClass]="{'is-invalid': contactName.invalid && (contactName.touched || contactName.dirty || contactForm.submitted), 'is-valid': contactName.valid && (contactName.touched || contactName.dirty || contactForm.submitted)}">
+						@if (contactName.invalid && (contactName.touched || contactName.dirty || contactForm.submitted))
+						{
+						<div class="invalid-feedback d-block">Polje je obvezno!</div>
+						}
+					</div>
+					<div class="mb-3">
+						<label for="priimek" class="form-label contact-edit-label">Priimek:</label>
+						<input type="text" class="form-control contact-edit-input" id="priimek" name="contactSurname"
+							[(ngModel)]="contact.surname" #contactSurname="ngModel" required
+							[ngClass]="{'is-invalid': contactSurname.invalid && (contactSurname.touched || contactSurname.dirty || contactForm.submitted), 'is-valid': contactSurname.valid && (contactSurname.touched || contactSurname.dirty || contactForm.submitted)}">
+						@if (contactSurname.invalid && (contactSurname.touched || contactSurname.dirty || contactForm.submitted))
+						{
+						<div class="invalid-feedback d-block">Polje je obvezno!</div>
+						}
+					</div>
+					<div class="mb-3">
+						<label for="telefon" class="form-label contact-edit-label">Telefon:</label>
+						<input type="text" class="form-control contact-edit-input" id="telefon" name="contactPhone"
+							[(ngModel)]="contact.phone" #contactPhone="ngModel" required
+							[ngClass]="{'is-invalid': contactPhone.invalid && (contactPhone.touched || contactPhone.dirty || contactForm.submitted), 'is-valid': contactPhone.valid && (contactPhone.touched || contactPhone.dirty || contactForm.submitted)}">
+						@if (contactPhone.invalid && (contactPhone.touched || contactPhone.dirty || contactForm.submitted))
+						{
+						<div class="invalid-feedback d-block">Polje je obvezno!</div>
+						}
+					</div>
+					<div class="mb-3">
+						<label for="email" class="form-label contact-edit-label">Elektronska pošta:</label>
+						<input type="email" class="form-control contact-edit-input" id="email" name="contactEmail"
+							[(ngModel)]="contact.email" #contactEmail="ngModel" required
+							[ngClass]="{'is-invalid': contactEmail.invalid && (contactEmail.touched || contactEmail.dirty || contactForm.submitted), 'is-valid': contactEmail.valid && (contactEmail.touched || contactEmail.dirty || contactForm.submitted)}">
+						@if (contactEmail.invalid && (contactEmail.touched || contactEmail.dirty || contactForm.submitted))
+						{
+						<div class="invalid-feedback d-block">Polje je obvezno!</div>
+						}
+					</div>
+					<div class="mb-4">
+						<label for="podjetje" class="form-label contact-edit-label">Podjetje (neobvezno):</label>
+						<input type="text" class="form-control contact-edit-input" id="podjetje" name="contactCompany"
+							[(ngModel)]="contact.company" #contactCompany="ngModel">
+					</div>
+					<div class="d-grid gap-2 d-lg-flex justify-content-lg-end">
+						<button [disabled]="contactForm.invalid" type="submit" class="btn btn-success text-white contact-edit-btn">Shrani</button>
+						<button type="button" class="btn btn-danger contact-edit-btn">Izbriši</button>
+					</div>
                 </form>
             </div>
         </div>
