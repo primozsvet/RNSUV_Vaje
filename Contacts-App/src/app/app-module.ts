@@ -1,6 +1,9 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// Uvoz FormsMoule
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Header } from './shared/components/header/header';
@@ -24,7 +27,8 @@ import { ContactsEdit } from './features/contacts/pages/contacts-edit/contacts-e
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
