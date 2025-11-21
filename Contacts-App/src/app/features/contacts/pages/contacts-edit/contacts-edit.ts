@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../../../shared/classes/contact';
 import { NgForm } from '@angular/forms';
+
+import { ContactsService } from '../../../../core/services/contacts-service';
 
 @Component({
   selector: 'app-contacts-edit',
@@ -8,11 +10,33 @@ import { NgForm } from '@angular/forms';
   templateUrl: './contacts-edit.html',
   styleUrl: './contacts-edit.css'
 })
-export class ContactsEdit {
+export class ContactsEdit implements OnInit {
   public contact: Contact;
 
-  constructor() {
-    this.contact = new Contact(1, 'Ana', 'Novak', '041 123 456', 'ana.novak@email.si', 'Mercator');
+  constructor(private contactsService: ContactsService) {
+    //this.contact = new Contact(1, 'Ana', 'Novak', '041 123 456', 'ana.novak@email.si', 'Mercator');
+    this.contact = new Contact(-1, '', '', '', '', '');
+  }
+
+  ngOnInit(): void {
+    this.contactsService.getContactById(2).subscribe({
+      next: (data) => {
+        this.contact = new Contact(
+          data.id || -1,
+          data.name || '',
+          data.surname || '',
+          data.phone || '',
+          data.email || '',
+          data.company || ''
+        );
+      },
+      error: (error) => {
+        console.error('Error loading contact:', error);
+      },
+      complete: () => {
+        console.log('Contact loaded successfully', this.contact);
+      }
+    });
   }
 
   public onSubmit(contactForm: NgForm): void {
