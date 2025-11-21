@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Contact } from '../../../../shared/classes/contact';
 
-import demoContacts from '../../../../../../public/assets/demo/demo-contacts.json';
+//import demoContacts from '../../../../../../public/assets/demo/demo-contacts.json';
+
+import { ContactsService } from '../../../../core/services/contacts-service';
 
 @Component({
   selector: 'app-contacts-overview',
@@ -39,10 +41,10 @@ export class ContactsOverview implements OnInit {
   public company2: string = '';
   */
 
-  constructor() {}
+  constructor(private contactsService: ContactsService) {}
 
   ngOnInit(): void {
-    this.loadDemoContacts();
+    this.loadContacts();
     /*
     this.contact1.name = 'Ana';
     this.contact1.surname = 'Novak';
@@ -103,14 +105,25 @@ export class ContactsOverview implements OnInit {
     alert(tekst);
   }
 
-  private loadDemoContacts() {
-    this.contacts = (demoContacts as any[]).map(obj => new Contact(
-      obj.name || '',
-      obj.surname || '',
-      obj.phone || '',
-      obj.email || '',
-      obj.company || ''
-    ));
+  private loadContacts() {
+    this.contactsService.getAllContacts().subscribe({
+      next: (data) => {
+        this.contacts = data.map((obj: any) => new Contact(
+          obj.id || -1,
+          obj.name || '',
+          obj.surname || '',
+          obj.phone || '',
+          obj.email || '',
+          obj.company || ''
+        ));
+      },
+      error: (error) => {
+        console.error('Error loading contacts:', error);
+      },
+      complete: () => {
+        console.log('Contacts loaded successfully.', this.contacts);
+      }
+    });
   }
 
   addContactClassText(contact: Contact) {

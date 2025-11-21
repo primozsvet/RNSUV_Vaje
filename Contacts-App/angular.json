@@ -71,7 +71,8 @@
               "buildTarget": "Contacts-App:build:production"
             },
             "development": {
-              "buildTarget": "Contacts-App:build:development"
+              "buildTarget": "Contacts-App:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

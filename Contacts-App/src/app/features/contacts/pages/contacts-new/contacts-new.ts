@@ -12,7 +12,7 @@ export class ContactsNew {
   public contact: Contact;
 
   constructor() {
-    this.contact = new Contact('', '', '', '', '');
+    this.contact = new Contact(-1, '', '', '', '', '');
   }
 
   public onSubmit(contactForm: NgForm): void {

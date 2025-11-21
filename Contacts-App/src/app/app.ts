@@ -11,6 +11,6 @@ export class App {
 
   public loggedIn = true;
   public isLoginForm = true;
-  public contactViewMode: string = 'edit';
+  public contactViewMode: string = '';
 
 }

@@ -12,7 +12,7 @@ export class ContactsEdit {
   public contact: Contact;
 
   constructor() {
-    this.contact = new Contact('Ana', 'Novak', '041 123 456', 'ana.novak@email.si', 'Mercator');
+    this.contact = new Contact(1, 'Ana', 'Novak', '041 123 456', 'ana.novak@email.si', 'Mercator');
   }
 
   public onSubmit(contactForm: NgForm): void {
