@@ -50,11 +50,50 @@ export class ContactsEdit implements OnInit {
       } else {
         text = `Urejanje kontakta:\nIme: ${this.contact.name}\nPriimek: ${this.contact.surname}\nTelefon: ${this.contact.phone}\nEmail: ${this.contact.email}`;
       }
-      alert(text);
+      //alert(text);
       console.log(text);
+
+      this.contactsService.updateContact(this.contact.id, this.contact).subscribe({
+        next: (data) => {
+          this.contact = new Contact(
+            data.id || -1,
+            data.name || '',
+            data.surname || '',
+            data.phone || '',
+            data.email || '',
+            data.company || ''
+          );
+        },
+        error: (error) => {
+          console.error('Error updating contact:', error);
+        },
+        complete: () => {
+          console.log('Contact updated successfully', this.contact);
+
+        }
+      });
     } else {
       alert("Prosimo, izpolnite vse zahtevane podatke za urejanje kontakta.");
       console.log("Prosimo, izpolnite vse zahtevane podatke za urejanje kontakta.");
     }
+  }
+
+  public onDelete(): void {
+    this.contactsService.deleteContact(this.contact.id).subscribe({
+      next: (data) => {
+        this.contact.id = -1;
+        this.contact.name = '';
+        this.contact.surname = '';
+        this.contact.phone = '';
+        this.contact.email = '';
+        this.contact.company = '';
+      },
+      error: (error) => {
+        console.error('Error deleting contact:', error);
+      },
+      complete: () => {
+        console.log('Contact deleted successfully');
+      }
+    });
   }
 }

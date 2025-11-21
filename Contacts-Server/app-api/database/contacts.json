@@ -8,13 +8,6 @@
     "company": "Mercator"
   },
   {
-    "id": 2,
-    "name": "Bojan",
-    "surname": "Kralj",
-    "phone": "031 234 567",
-    "email": "bojan.kralj@email.si"
-  },
-  {
     "id": 3,
     "name": "Cvetka",
     "surname": "Zupan",

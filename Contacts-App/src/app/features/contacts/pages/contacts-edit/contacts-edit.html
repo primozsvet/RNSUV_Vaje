@@ -7,8 +7,8 @@
             <div class="card-body p-4">
                 <h2 class="mb-4 fw-bold contact-edit-title">
                     Urejanje kontakta:
-                    <span class="d-none d-md-inline"> Ana Novak</span>
-                    <span class="d-inline d-md-none"><br>Ana Novak</span>
+                    <span class="d-none d-md-inline"> {{contact.name}} {{contact.surname}}</span>
+                    <span class="d-inline d-md-none"><br>{{contact.name}} {{contact.surname}}</span>
                 </h2>
                 <form (ngSubmit)="onSubmit(contactForm)" class="form-group" #contactForm="ngForm">
                     <div class="mb-3">
@@ -58,7 +58,7 @@
 					</div>
 					<div class="d-grid gap-2 d-lg-flex justify-content-lg-end">
 						<button [disabled]="contactForm.invalid" type="submit" class="btn btn-success text-white contact-edit-btn">Shrani</button>
-						<button type="button" class="btn btn-danger contact-edit-btn">Izbriši</button>
+						<button (click)="onDelete()" type="button" class="btn btn-danger contact-edit-btn">Izbriši</button>
 					</div>
                 </form>
             </div>
