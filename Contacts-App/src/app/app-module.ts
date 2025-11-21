@@ -19,6 +19,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 // Storitve
 import { ContactsService } from './core/services/contacts-service';
+import { AuthService } from './core/services/auth-service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ContactsService } from './core/services/contacts-service';
   ],
   providers: [
     provideHttpClient(withInterceptors([])),
-    ContactsService
+    ContactsService,
+    AuthService
   ],
   bootstrap: [App]
 })
