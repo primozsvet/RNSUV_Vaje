@@ -1,4 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+
+import { AuthService } from './core/services/auth-service';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +8,17 @@ import { Component, signal } from '@angular/core';
   standalone: false,
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
   protected readonly title = signal('Contacts-App');
 
-  public loggedIn = false;
+  public loggedIn = true;
   public isLoginForm = true;
   public contactViewMode: string = '';
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.loggedIn = this.authService.isLoggedIn();
+  }
 
 }

@@ -31,13 +31,13 @@
                 </ul>
                 <ul class="navbar-nav ms-auto d-none d-lg-flex">
                     <li class="nav-item">
-                        <button class="btn btn-success text-white" type="button">Odjava</button>
+                        <button (click)="logout()" class="btn btn-success text-white" type="button">Odjava</button>
                     </li>
                 </ul>
                 <!-- Mobile sign out button in hamburger -->
                 <ul class="navbar-nav d-lg-none">
                     <li class="nav-item d-flex justify-content-center">
-                        <button class="btn btn-success text-white my-2" type="button" style="width:80%;">Odjava</button>
+                        <button (click)="logout()" class="btn btn-success text-white my-2" type="button" style="width:80%;">Odjava</button>
                     </li>
                 </ul>
             </div>
