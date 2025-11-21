@@ -1,4 +1,4 @@
-import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 // Uvoz FormsMoule
@@ -13,6 +13,12 @@ import { Signup } from './features/authentication/pages/signup/signup';
 import { ContactsOverview } from './features/contacts/pages/contacts-overview/contacts-overview';
 import { ContactsNew } from './features/contacts/pages/contacts-new/contacts-new';
 import { ContactsEdit } from './features/contacts/pages/contacts-edit/contacts-edit';
+
+// Uvoz provideHttpClient
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+
+// Storitve
+import { ContactsService } from './core/services/contacts-service';
 
 @NgModule({
   declarations: [
@@ -31,8 +37,8 @@ import { ContactsEdit } from './features/contacts/pages/contacts-edit/contacts-e
     FormsModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection()
+    provideHttpClient(withInterceptors([])),
+    ContactsService
   ],
   bootstrap: [App]
 })
