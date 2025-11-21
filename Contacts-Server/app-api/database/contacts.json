@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Ana",
+    "surname": "Novak",
+    "phone": "041 123 456",
+    "email": "ana.novak@email.si",
+    "company": "Mercator"
+  },
+  {
+    "id": 2,
+    "name": "Bojan",
+    "surname": "Kralj",
+    "phone": "031 234 567",
+    "email": "bojan.kralj@email.si"
+  },
+  {
+    "id": 3,
+    "name": "Cvetka",
+    "surname": "Zupan",
+    "phone": "051 345 678",
+    "email": "cvetka.zupan@email.si",
+    "company": "Petrol"
+  },
+  {
+    "id": 4,
+    "name": "David",
+    "surname": "Horvat",
+    "phone": "040 456 789",
+    "email": "david.horvat@email.si"
+  },
+  {
+    "id": 5,
+    "name": "Eva",
+    "surname": "Kovač",
+    "phone": "070 567 890",
+    "email": "eva.kovac@email.si",
+    "company": "Krka"
+  },
+  {
+    "id": 6,
+    "name": "Franc",
+    "surname": "Mlakar",
+    "phone": "031 678 901",
+    "email": "franc.mlakar@email.si"
+  },
+  {
+    "id": 7,
+    "name": "Gorazd",
+    "surname": "Vidmar",
+    "phone": "041 789 012",
+    "email": "gorazd.vidmar@email.si",
+    "company": "Telekom"
+  },
+  {
+    "id": 8,
+    "name": "Helena",
+    "surname": "Potočnik",
+    "phone": "051 890 123",
+    "email": "helena.potocnik@email.si"
+  },
+  {
+    "id": 9,
+    "name": "Igor",
+    "surname": "Koren",
+    "phone": "040 901 234",
+    "email": "igor.koren@email.si",
+    "company": "Lek"
+  },
+  {
+    "id": 10,
+    "name": "Jana",
+    "surname": "Kralj",
+    "phone": "070 012 345",
+    "email": "jana.kralj@email.si"
+  },
+  {
+    "id": 11,
+    "name": "Klemen",
+    "surname": "Zajc",
+    "phone": "031 123 789",
+    "email": "klemen.zajc@email.si",
+    "company": "Gorenje"
+  },
+  {
+    "id": 12,
+    "name": "Lara",
+    "surname": "Kovačič",
+    "phone": "041 234 890",
+    "email": "lara.kovacic@email.si"
+  },
+  {
+    "id": 13,
+    "name": "Miha",
+    "surname": "Pirc",
+    "phone": "051 345 012",
+    "email": "miha.pirc@email.si",
+    "company": "Sava"
+  },
+  {
+    "id": 14,
+    "name": "Nina",
+    "surname": "Kastelic",
+    "phone": "040 456 123",
+    "email": "nina.kastelic@email.si"
+  },
+  {
+    "id": 15,
+    "name": "Oskar",
+    "surname": "Breznik",
+    "phone": "070 567 234",
+    "email": "oskar.breznik@email.si",
+    "company": "BTC"
+  },
+  {
+    "id": 16,
+    "name": "Petra",
+    "surname": "Kosec",
+    "phone": "031 678 345",
+    "email": "petra.kosec@email.si"
+  },
+  {
+    "id": 17,
+    "name": "Rok",
+    "surname": "Kranjc",
+    "phone": "041 789 456",
+    "email": "rok.kranjc@email.si",
+    "company": "Triglav"
+  },
+  {
+    "id": 18,
+    "name": "Sara",
+    "surname": "Zupančič",
+    "phone": "051 890 567",
+    "email": "sara.zupancic@email.si"
+  },
+  {
+    "id": 19,
+    "name": "Tina",
+    "surname": "Kavčič",
+    "phone": "040 901 678",
+    "email": "tina.kavcic@email.si",
+    "company": "NLB"
+  },
+  {
+    "id": 20,
+    "name": "Urban",
+    "surname": "Kosem",
+    "phone": "070 012 789",
+    "email": "urban.kosem@email.si"
+  }
+]

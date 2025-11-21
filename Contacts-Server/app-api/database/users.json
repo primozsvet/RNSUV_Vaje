@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"name": "Janez",
+		"surname": "Uporabnik",
+		"email": "janez.uporabnik@email.si",
+		"password": "Geslo123"
+	},
+	{
+		"id": 2,
+		"name": "Marko",
+		"surname": "Kralj",
+		"email": "marko.kralj@email.si",
+		"password": "Geslo123"
+	},
+	{
+		"id": 3,
+		"name": "Ivan",
+		"surname": "Kontaktni",
+		"email": "ivan.kontaktni@email.si",
+		"password": "Geslo123"
+	}
+]
