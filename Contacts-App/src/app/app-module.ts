@@ -21,6 +21,9 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ContactsService } from './core/services/contacts-service';
 import { AuthService } from './core/services/auth-service';
 
+// Prestrezniki
+import { contactsInterceptor } from './core/interceptors/contacts-interceptor';
+
 @NgModule({
   declarations: [
     App,
@@ -38,7 +41,7 @@ import { AuthService } from './core/services/auth-service';
     FormsModule
   ],
   providers: [
-    provideHttpClient(withInterceptors([])),
+    provideHttpClient(withInterceptors([contactsInterceptor])),
     ContactsService,
     AuthService
   ],

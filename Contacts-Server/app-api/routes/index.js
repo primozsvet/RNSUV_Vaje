@@ -13,18 +13,18 @@ router.post('/signup', ctrlAuth.signUp); // Registracija novega uporabnika
 router.post('/login', ctrlAuth.login); // Prijava uporabnika
 
 /* Kontakti */
-router.get('/contacts', ctrlContacts.getAllContacts); // Pridobi vse kontakte
+/*router.get('/contacts', ctrlContacts.getAllContacts); // Pridobi vse kontakte
 router.get('/contacts/:id', ctrlContacts.getContactById); // Pridobi posamezen kontakt
 router.post('/contacts', ctrlContacts.createContact); // Ustvari nov kontakt
 router.put('/contacts/:id', ctrlContacts.updateContact); // Posodobi kontakt
-router.delete('/contacts/:id', ctrlContacts.deleteContact); // Izbrisi kontakt
+router.delete('/contacts/:id', ctrlContacts.deleteContact); // Izbrisi kontakt*/
 
 /* Kontakti - varovano */
-/*router.get('/contacts', authenticateToken, ctrlContacts.getAllContacts); // Pridobi vse kontakte
+router.get('/contacts', authenticateToken, ctrlContacts.getAllContacts); // Pridobi vse kontakte
 router.get('/contacts/:id', authenticateToken, ctrlContacts.getContactById); // Pridobi posamezen kontakt
 router.post('/contacts', authenticateToken, ctrlContacts.createContact); // Ustvari nov kontakt
 router.put('/contacts/:id', authenticateToken, ctrlContacts.updateContact); // Posodobi kontakt
-router.delete('/contacts/:id', authenticateToken, ctrlContacts.deleteContact); // Izbrisi kontakt*/
+router.delete('/contacts/:id', authenticateToken, ctrlContacts.deleteContact); // Izbrisi kontakt
 
 
 /* Middleware za preverjanje JWT */

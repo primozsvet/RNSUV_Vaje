@@ -19,7 +19,7 @@ export class ContactsEdit implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contactsService.getContactById(21).subscribe({
+    this.contactsService.getContactById(2).subscribe({
       next: (data) => {
         this.contact = new Contact(
           data.id || -1,
