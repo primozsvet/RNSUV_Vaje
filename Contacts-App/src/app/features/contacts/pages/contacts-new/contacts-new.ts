@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Contact } from '../../../../shared/classes/contact';
 import { NgForm } from '@angular/forms';
 
+import { ContactsService } from '../../../../core/services/contacts-service';
+
 @Component({
   selector: 'app-contacts-new',
   standalone: false,
@@ -11,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class ContactsNew {
   public contact: Contact;
 
-  constructor() {
+  constructor(private contactsService: ContactsService) {
     this.contact = new Contact(-1, '', '', '', '', '');
   }
 
@@ -26,8 +28,26 @@ export class ContactsNew {
       } else {
         text = `Nov kontakt:\nIme: ${this.contact.name}\nPriimek: ${this.contact.surname}\nTelefon: ${this.contact.phone}\nEmail: ${this.contact.email}`;
       }
-      alert(text);
+      //alert(text);
       console.log(text);
+
+      this.contactsService.createContact(this.contact).subscribe({
+        next: (data) => {
+          this.contact.id = -1;
+          this.contact.name = '';
+          this.contact.surname = '';
+          this.contact.phone = '';
+          this.contact.email = '';
+          this.contact.company = '';
+        },
+        error: (error) => {
+          console.error('Error creating contact:', error);
+        },
+        complete: () => {
+          console.log('Created contact successfully.');
+        }
+      });
+
     } else {
       alert("Prosimo, izpolnite vse zahtevane podatke za dodajanje novega kontakta.");
       console.log("Prosimo, izpolnite vse zahtevane podatke za dodajanje novega kontakta.");

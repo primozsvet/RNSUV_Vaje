@@ -141,5 +141,13 @@
     "surname": "Kosem",
     "phone": "070 012 789",
     "email": "urban.kosem@email.si"
+  },
+  {
+    "id": 21,
+    "name": "Janez",
+    "surname": "Testni",
+    "phone": "041 321 123",
+    "email": "janez.testni@email.si",
+    "company": "Hofer"
   }
 ]
