@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Contact } from '../../../../shared/classes/contact';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ContactsService } from '../../../../core/services/contacts-service';
 
@@ -13,7 +14,7 @@ import { ContactsService } from '../../../../core/services/contacts-service';
 export class ContactsNew {
   public contact: Contact;
 
-  constructor(private contactsService: ContactsService) {
+  constructor(private contactsService: ContactsService, private router: Router) {
     this.contact = new Contact(-1, '', '', '', '', '');
   }
 
@@ -39,13 +40,15 @@ export class ContactsNew {
           this.contact.phone = '';
           this.contact.email = '';
           this.contact.company = '';
+
+          this.router.navigate(['contacts']);
         },
         error: (error) => {
           console.error('Error creating contact:', error);
-        },
+        }/*,
         complete: () => {
           console.log('Created contact successfully.');
-        }
+        }*/
       });
 
     } else {

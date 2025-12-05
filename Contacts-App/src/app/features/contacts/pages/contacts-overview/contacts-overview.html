@@ -1,5 +1,8 @@
 <div class="container py-5 mb-5">
-    <h2 class="mb-5 fw-bold contact-overview-title">Pregled kontaktov</h2>
+    <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between mb-4">
+        <h2 class="mb-3 mb-md-0 fw-bold contact-overview-title">Pregled kontaktov</h2>
+        <button routerLink="/contacts/new" class="btn btn-success text-white mt-3 mt-md-0 ms-md-3">Nov kontakt</button>
+    </div>
     <div class="row g-4">
         @for(contact of contacts; track contact.id) {
             <div class="col-12 col-md-6 col-lg-3">
