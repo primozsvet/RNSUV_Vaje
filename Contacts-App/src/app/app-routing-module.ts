@@ -8,13 +8,16 @@ import { ContactsOverview } from './features/contacts/pages/contacts-overview/co
 import { ContactsNew } from './features/contacts/pages/contacts-new/contacts-new';
 import { ContactsEdit } from './features/contacts/pages/contacts-edit/contacts-edit';
 
+// AuthGuard
+import { authGuard } from './core/guards/auth-guard';
+
 const routes: Routes = [
   { path: '', redirectTo: '/contacts', pathMatch: 'full' },
   { path: 'login', component: Login },
   { path: 'signup', component: Signup },
-  { path: 'contacts', component: ContactsOverview },
-  { path: 'contacts/new', component: ContactsNew },
-  { path: 'contacts/edit/:id', component: ContactsEdit },
+  { path: 'contacts', component: ContactsOverview, canActivate: [authGuard] },
+  { path: 'contacts/new', component: ContactsNew, canActivate: [authGuard] },
+  { path: 'contacts/edit/:id', component: ContactsEdit, canActivate: [authGuard] },
   { path: '**', redirectTo: '/contacts' }
 ];
 
