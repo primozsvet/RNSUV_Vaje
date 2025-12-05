@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../../../../shared/classes/user';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../../../core/services/auth-service';
 
@@ -15,7 +16,7 @@ export class Signup {
   public user: User;
   public confirmed: boolean = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.user = new User (-1,'','','','');
   }
 
@@ -28,13 +29,14 @@ export class Signup {
       this.authService.registerUser(this.user).subscribe({
         next: (data) => {
           this.authService.setToken("Bearer " + data.token);
+          this.router.navigate(['contacts']);
         },
         error: (error) => {
           console.error('Error registrating user:', error)
-        },
+        }/*,
         complete: () => {
           console.log('User registration completed!');
-        }
+        }*/
       });
     } else {
       alert("Obrazec ni ustrezno izpolnjen!");
