@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../../../shared/classes/contact';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { ContactsService } from '../../../../core/services/contacts-service';
 
@@ -13,30 +14,35 @@ import { ContactsService } from '../../../../core/services/contacts-service';
 export class ContactsEdit implements OnInit {
   public contact: Contact;
 
-  constructor(private contactsService: ContactsService) {
+  constructor(private contactsService: ContactsService, private route: ActivatedRoute) {
     //this.contact = new Contact(1, 'Ana', 'Novak', '041 123 456', 'ana.novak@email.si', 'Mercator');
     this.contact = new Contact(-1, '', '', '', '', '');
   }
 
   ngOnInit(): void {
-    this.contactsService.getContactById(2).subscribe({
-      next: (data) => {
-        this.contact = new Contact(
-          data.id || -1,
-          data.name || '',
-          data.surname || '',
-          data.phone || '',
-          data.email || '',
-          data.company || ''
-        );
-      },
-      error: (error) => {
-        console.error('Error loading contact:', error);
-      },
-      complete: () => {
-        console.log('Contact loaded successfully', this.contact);
-      }
-    });
+
+    const contactId = Number(this.route.snapshot.paramMap.get('id'));
+
+    if (contactId) {
+      this.contactsService.getContactById(contactId).subscribe({
+        next: (data) => {
+          this.contact = new Contact(
+            data.id || -1,
+            data.name || '',
+            data.surname || '',
+            data.phone || '',
+            data.email || '',
+            data.company || ''
+          );
+        },
+        error: (error) => {
+          console.error('Error loading contact:', error);
+        },
+        complete: () => {
+          console.log('Contact loaded successfully', this.contact);
+        }
+      });
+    }
   }
 
   public onSubmit(contactForm: NgForm): void {

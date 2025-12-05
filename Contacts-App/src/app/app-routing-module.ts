@@ -6,6 +6,7 @@ import { Login } from './features/authentication/pages/login/login';
 import { Signup } from './features/authentication/pages/signup/signup';
 import { ContactsOverview } from './features/contacts/pages/contacts-overview/contacts-overview';
 import { ContactsNew } from './features/contacts/pages/contacts-new/contacts-new';
+import { ContactsEdit } from './features/contacts/pages/contacts-edit/contacts-edit';
 
 const routes: Routes = [
   { path: '', redirectTo: '/contacts', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'signup', component: Signup },
   { path: 'contacts', component: ContactsOverview },
   { path: 'contacts/new', component: ContactsNew },
+  { path: 'contacts/edit/:id', component: ContactsEdit },
   { path: '**', redirectTo: '/contacts' }
 ];
 
