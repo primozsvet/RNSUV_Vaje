@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../../../core/services/auth-service';
 
@@ -14,7 +15,7 @@ export class Login {
   public email: string;
   public pass: string;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.email = '';
     this.pass = '';
   }
@@ -28,13 +29,14 @@ export class Login {
       this.authService.loginUser({email: this.email, pass: this.pass}).subscribe({
         next: (data) => {
           this.authService.setToken("Bearer " + data.token);
+          this.router.navigate(['contacts']);
         },
         error: (error) => {
           console.error('Error logging in user:', error)
-        },
+        }/*,
         complete: () => {
           console.log('User login completed!');
-        }
+        }*/
       });
     } else {
       alert("Prosimo, izpolnite vse zahtevane podatke za prijavo.");
