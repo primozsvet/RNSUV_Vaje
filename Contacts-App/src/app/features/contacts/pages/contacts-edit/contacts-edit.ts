@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../../../shared/classes/contact';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { ContactsService } from '../../../../core/services/contacts-service';
 
@@ -14,7 +15,7 @@ import { ContactsService } from '../../../../core/services/contacts-service';
 export class ContactsEdit implements OnInit {
   public contact: Contact;
 
-  constructor(private contactsService: ContactsService, private route: ActivatedRoute) {
+  constructor(private contactsService: ContactsService, private route: ActivatedRoute, private router: Router) {
     //this.contact = new Contact(1, 'Ana', 'Novak', '041 123 456', 'ana.novak@email.si', 'Mercator');
     this.contact = new Contact(-1, '', '', '', '', '');
   }
@@ -69,14 +70,15 @@ export class ContactsEdit implements OnInit {
             data.email || '',
             data.company || ''
           );
+
+          this.router.navigate(['contacts']);
         },
         error: (error) => {
           console.error('Error updating contact:', error);
-        },
+        }/*,
         complete: () => {
           console.log('Contact updated successfully', this.contact);
-
-        }
+        }*/
       });
     } else {
       alert("Prosimo, izpolnite vse zahtevane podatke za urejanje kontakta.");
@@ -93,13 +95,15 @@ export class ContactsEdit implements OnInit {
         this.contact.phone = '';
         this.contact.email = '';
         this.contact.company = '';
+
+        this.router.navigate(['contacts']);
       },
       error: (error) => {
         console.error('Error deleting contact:', error);
-      },
+      }/*,
       complete: () => {
         console.log('Contact deleted successfully');
-      }
+      }*/
     });
   }
 }

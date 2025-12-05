@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Contact } from '../../../../shared/classes/contact';
 
@@ -41,7 +42,7 @@ export class ContactsOverview implements OnInit {
   public company2: string = '';
   */
 
-  constructor(private contactsService: ContactsService) {}
+  constructor(private contactsService: ContactsService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadContacts();
@@ -92,6 +93,7 @@ export class ContactsOverview implements OnInit {
   }
 
   editButton(contact: Contact) {
+    /*
     let tekst = '';
 
     if(contact.company) {
@@ -103,6 +105,10 @@ export class ContactsOverview implements OnInit {
     }
 
     alert(tekst);
+    */
+   
+    // /contacts/edit/:id
+    this.router.navigate(['contacts', 'edit', contact.id]);
   }
 
   private loadContacts() {
