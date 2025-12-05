@@ -8,10 +8,12 @@ import { ContactsOverview } from './features/contacts/pages/contacts-overview/co
 import { ContactsNew } from './features/contacts/pages/contacts-new/contacts-new';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/contacts', pathMatch: 'full' },
   { path: 'login', component: Login },
   { path: 'signup', component: Signup },
   { path: 'contacts', component: ContactsOverview },
-  { path: 'contacts/new', component: ContactsNew }
+  { path: 'contacts/new', component: ContactsNew },
+  { path: '**', redirectTo: '/contacts' }
 ];
 
 @NgModule({
