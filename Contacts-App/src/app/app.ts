@@ -11,14 +11,18 @@ import { AuthService } from './core/services/auth-service';
 export class App implements OnInit {
   protected readonly title = signal('Contacts-App');
 
-  public loggedIn = true;
-  public isLoginForm = true;
-  public contactViewMode: string = '';
+  //public loggedIn = true;
+  //public isLoginForm = true;
+  //public contactViewMode: string = '';
 
   constructor(private authService: AuthService) {}
 
+  public isUserLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+
   ngOnInit(): void {
-    this.loggedIn = this.authService.isLoggedIn();
+    //this.loggedIn = this.authService.isLoggedIn();
   }
 
 }
